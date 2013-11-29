@@ -21,7 +21,8 @@ class Airport
 		@capacity <= plane_count
 	end
 
-	def land(plane)
+	def land(plane) 
+		raise "airportfull" if full?
 		@planes << plane
 	end
 
@@ -31,8 +32,16 @@ class Airport
 
 end
 
-airport = Airport.new(6,2)
-puts airport.plane_count
-puts airport.plane_count
-puts @planes
-puts @capacity
+# airport = Airport.new(6,2)
+# puts airport.plane_count
+# puts airport.plane_count
+# puts @planes
+# puts @capacity
+
+# airport = Airport.new(6,5)
+# puts airport.full?
+# plane = Plane.new
+# airport.land(plane)
+# puts airport.full?
+# plance = Plane.new
+# airport.land(plane)
