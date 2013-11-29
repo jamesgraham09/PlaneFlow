@@ -1,9 +1,34 @@
-describe Airport class
+require_relative 'plane'
 
-	CAPACITY = 10
+class Airport
 
-	def plane_count
-		Airport.planes.count
+	attr_accessor :planes
+
+	def initialize(capacity, starting_planes)
+		@capacity = capacity
+		@planes = []
+		starting_planes.times do 
+			plane = Plane.new
+			@planes << plane
+			end
 	end
 
-	
+	def land(plane)
+		@planes << plane
+	end
+
+	def takeoff(plane)
+		@planes.delete plane
+	end
+
+	def plane_count
+		@planes.count
+	end
+
+end
+
+airport = Airport.new(6,2)
+puts airport.plane_count
+puts airport.plane_count
+puts @planes
+puts @capacity
