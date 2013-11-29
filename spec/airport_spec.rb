@@ -34,7 +34,7 @@ describe Airport do
 
     it "airport knows when it is full" do
       airport = Airport.new(6,6)
-      expect(airport.full?).to be_true
+      expect(airport.full?).to eq(true)
       end
 
     it 'a plane cannot land if the airport is full' do

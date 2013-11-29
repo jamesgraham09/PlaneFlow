@@ -13,16 +13,20 @@ class Airport
 			end
 	end
 
+	def plane_count
+		@planes.count
+	end
+
+	def full?
+		@capacity <= plane_count
+	end
+
 	def land(plane)
 		@planes << plane
 	end
 
 	def takeoff(plane)
 		@planes.delete plane
-	end
-
-	def plane_count
-		@planes.count
 	end
 
 end
