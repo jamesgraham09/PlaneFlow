@@ -1,12 +1,17 @@
-
 module Weather
 
-	def stormy
-		weather = @storm
+	def new_weather
+		random = rand(1..100)
+		@weather = storm
 	end
 
-	def calm
-		weather = @calm
+	def stormy?
+		@weather == 'storm'
+	end
+
+	def calm?
+		@weather == 'calm'
 	end
 
 end
+

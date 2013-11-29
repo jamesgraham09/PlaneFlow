@@ -1,6 +1,10 @@
 require_relative 'plane'
+require './lib/plane'
+require './lib/weather'
 
 class Airport
+
+	include Weather
 
 	attr_accessor :planes
 
