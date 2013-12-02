@@ -1,4 +1,3 @@
-require_relative 'plane'
 require './lib/plane'
 require './lib/weather'
 
@@ -27,10 +26,12 @@ class Airport
 
 	def land(plane) 
 		raise "airportfull" if full?
+		raise "toostormy" if stormy?
 		@planes << plane
 	end
 
 	def takeoff(plane)
+		raise "toostormy" if stormy?
 		@planes.delete plane
 	end
 

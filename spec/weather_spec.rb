@@ -12,15 +12,25 @@ require './lib/weather'
     
   describe Weather do 
     context 'weather conditions' do
+      
+      it "knows when the weather is stormy" do
+        airport = Airport.new(6,0)
+        weather = 'storm'
+        expect(airport.weather).to be_stormy
+      end
+
       it 'a plane cannot take off when there is a storm brewing' do
         airport = Airport.new(6,0)
         plane = Plane.new
-        weather = Weather.new
-        weather == 'storm'
-        expect(lambda { airport.land(plane)}).to raise_error(RuntimeError)
+        @weather = 'storm'
+        expect(lambda { airport.takeoff(plane)}).to raise_error(RuntimeError)
       end
        
       it 'a plane cannot land in the middle of a storm' do
+        airport = Airport.new(6,0)
+        plane = Plane.new
+        @weather = 'storm'
+        expect(lambda { airport.land(plane)}).to raise_error(RuntimeError)
       end
     
     end
